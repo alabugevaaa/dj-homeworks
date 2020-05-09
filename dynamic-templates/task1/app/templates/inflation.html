@@ -1,4 +1,6 @@
-<!DOCTYPE html>{% load static %}
+{% load color_filters %}
+{% load static %}
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -18,8 +20,31 @@
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
         
-        <!-- Ваша логика -->
-
+          <table>
+            <tr>
+              <th>Год</th>
+              <th>Январь</th>
+              <th>Февраль</th>
+              <th>Март</th>
+              <th>Апрель</th>
+              <th>Май</th>
+              <th>Июнь</th>
+              <th>Июль</th>
+              <th>Август</th>
+              <th>Сентябрь</th>
+              <th>Октябрь</th>
+              <th>Ноябрь</th>
+              <th>Декабрь</th>
+              <th style="background-color: grey">Всего</th>
+            </tr>
+            {% for row in years %}
+              <tr>
+                {% for col in row %}
+                  <td style="background-color: {{ col|color_value:forloop.counter }}">{{ col }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </table>
         </div>
       </div>
     {% endblock %}
