@@ -15,4 +15,12 @@
 .price {
     font-weight: bold;
 }
+.item {
+    width: 50%;
+    height: 500px;
+    float: left;
+}
+.item img {
+    height: 80%;
+}
 
