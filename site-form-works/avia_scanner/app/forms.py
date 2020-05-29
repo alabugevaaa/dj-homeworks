@@ -5,5 +5,9 @@ from .models import City
 
 
 class SearchTicket(forms.Form):
-    # Добавьте здесь поля, описанные в задании
-    pass
+    city_from = forms.CharField(label="Город отправления",
+                                widget=AjaxInputWidget('api/city_ajax', attrs={'class': 'inline right-margin'}))
+    city_to = forms.ModelChoiceField(label="Город прибытия",
+                                     queryset=City.objects.all())
+    date = forms.DateField(label="Дата",
+                           widget=forms.SelectDateWidget)
